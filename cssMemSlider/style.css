@@ -1,5 +1,5 @@
 :root {
-	--font-size: 3rem;
+	--font-size: 2rem;
 }
 
 * {
@@ -15,48 +15,74 @@ li, ul {
 	list-style: none;
 }
 
+
 body {
-    background-color: rgb(41, 40, 40);
+	display: block;
+    background-color: rgb(58, 60, 63);
+	
 }
 
 .wrapper {
 	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-	height: 70vh;
-	width: 100vw;
-	padding: 5% 5%;
-	row-gap: 3vh;	
+    flex-direction: column;
+    margin: 3rem auto;
+	max-width:44rem;
+	row-gap: 1vh;
+    
 }
 
 .slider {
-	height: 100vh;
 	overflow: hidden;
-	max-width: 127rem;
-	border-radius: 2vh;
+	width: 100%;
+	display: flex;	
+}
+
+.slider-wrapper, .notes-wrapper{
+	width: 400%;
 	display: flex;
+	transition: all .5s;
 }
 
 .slides {
-    height: calc(100% + 1px);
-    width: 100%;
-	background-size: 100%;	
+    width: 100vw;
+    height: 28rem;
+    background-size: 100% auto;
+	object-fit: cover;
 }
 
+#slide1:checked ~ .slider .slider-wrapper,
+#slide1:checked ~ .footer .notes .notes-wrapper{
+    margin-left: 0;
+}
+#slide2:checked ~ .slider .slider-wrapper,
+#slide2:checked ~ .footer .notes .notes-wrapper {
+    margin-left: -100%;
+}
+#slide3:checked ~ .slider .slider-wrapper,
+#slide3:checked ~ .footer .notes .notes-wrapper {
+    margin-left: -200%;
+}
+#slide4:checked ~ .slider .slider-wrapper,
+#slide4:checked ~ .footer .notes .notes-wrapper {
+    margin-left: -300%;
+}
+
+
+
 .slide1 { 
-    background: url(assets/img/bg-welcome1024.jpg)center/contain no-repeat; 
+    background: url(assets/img/mem1.jpeg)center/cover no-repeat; 
 }
 
 .slide2 {
-    background: url(assets/img/mem2.png)center/contain no-repeat;
+    background: url(assets/img/mem2.jpeg)center/cover no-repeat;
 }
 
 .slide3 { 
-    background: url(assets/img/bg-welcome1024.jpg)center/contain no-repeat;
+    background: url(assets/img/mem3.jpeg)center/cover no-repeat;
  }
 
 .slide4 { 
-	background: url(assets/img/bg-welcome1024.jpg)center/contain no-repeat;
+	background: url(assets/img/mem4.jpeg)center/cover no-repeat;
  }
 
 .wrapper > input {
@@ -65,19 +91,23 @@ body {
 
 .footer {
 	display: flex;
+	width: 100%;
 }
 
 .notes {
-	width: 85vw;
+	width: 85%;
+	overflow: hidden;
+	display: flex;
 }
 
 .notes-text{
+	width: 100%;
 	font-size: var(--font-size);
 	color: white;
 }
 
 .controls {
-	width: 15vw;
+	width: 15%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -93,8 +123,8 @@ body {
 }
 
 .radio-element{
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background-color: #0b48f1;
   display: block;
@@ -111,36 +141,31 @@ body {
 	border: 0.125rem solid #8b0000;
   }
   .radio_label:checked {
-	background-color: aqua;
+	border: 0.125rem solid white;
   }
 
 #slide1:checked ~ .footer .el1 .radio-element,
 #slide2:checked ~ .footer .el2 .radio-element,
 #slide3:checked ~ .footer .el3 .radio-element,
 #slide4:checked ~ .footer .el4 .radio-element {
-  background-color: #232323;
+  background-color: rgb(58, 60, 63);
+  border: 0.125rem solid white;
 }
 
-#slide1:checked ~ .slider .slide1 {
-	transform: translateX(0);
-}
-#slide2:checked ~ .slider .slide2{
-	transform: translateX(-100%);
-}
-#slide3:checked ~ .slider .slide3{
-	transform: translateX(-300%);
-}
-#slide4:checked ~ .slider .slide4 {
-	transform: translateX(-400%);
+#slide1:checked ~ .slider .slide1, 
+#slide2:checked ~ .slider .slide2,
+#slide3:checked ~ .slider .slide3,
+#slide3:checked ~ .slider .slide4 {
+	margin-left: 0;
+	opacity:1;
 }
 
-
-
-  @media (max-width: 48rem) {
+  @media (max-width: 768px) {
 	.footer {
 		flex-direction: column;
 		row-gap: 2vh;
 		align-items: center;
+		justify-content: center;
 	}
 	.radio-element{
 		width: 1rem;
@@ -149,6 +174,11 @@ body {
 	.controls {
 		order: 1;
 	}
+	.slides {
+		width: 300px;
+		height: 20rem;
+	}
+
 	.notes{
 		order: 2;
 		width: 100%;
@@ -156,4 +186,21 @@ body {
 	:root {
 		--font-size: 1.5rem;
 	}
+}
+
+@media (max-width: 320px) {
+	.slides {
+		height: 30vh;
+	}
+	.radio-element{
+		width: .5rem;
+		height: .5rem;
+	}
+
+	.radio_label:hover .radio-element {
+		border: 0.02rem;
+	  }
+	  .radio_label:active .radio-element {
+		border: 0.02rem;
+	  }
 }
