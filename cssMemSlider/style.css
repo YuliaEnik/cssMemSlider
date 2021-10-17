@@ -2,7 +2,6 @@
 	--font-size: 2rem;
 }
 
-
 * {
 	margin: 0;
 	padding: 0;
@@ -19,22 +18,25 @@ li, ul {
 
 body {
 	display: block;
-    background-color: rgb(58, 60, 63);
+    background-color: rgb(83, 86, 90);
 	
+}
+
+.container {
+	padding: 5vh 5vw;
 }
 
 .wrapper {
 	display: flex;
     flex-direction: column;
-    margin: 3rem auto;
+    margin: 0 auto;
 	max-width:44rem;
 	row-gap: 1rem;
-    
+	width: 100%;   
 }
 
 .slider {
 	overflow: hidden;
-	width: 100%;
 	display: flex;	
 }
 
@@ -46,9 +48,8 @@ body {
 
 .slides {
     width: 100vw;
-    height: 28rem;
+    height: 30rem;
     background-size: 100% auto;
-	object-fit: cover;
 }
 
 #slide1:checked ~ .slider .slider-wrapper,
@@ -71,19 +72,19 @@ body {
 
 
 .slide1 { 
-    background: url(assets/img/mem1.jpeg)center/cover no-repeat; 
+    background: url(assets/img/mem1.jpeg) center/contain no-repeat; 
 }
 
 .slide2 {
-    background: url(assets/img/mem2.jpeg)center/cover no-repeat;
+    background: url(assets/img/mem2.jpeg) center/contain no-repeat;
 }
 
 .slide3 { 
-    background: url(assets/img/mem3.jpeg)center/cover no-repeat;
+    background: url(assets/img/mem3.jpeg) center/contain no-repeat;
  }
 
 .slide4 { 
-	background: url(assets/img/mem4.jpeg)center/cover no-repeat;
+	background: url(assets/img/mem4.jpeg) center/contain no-repeat;
  }
 
 .wrapper > input {
@@ -103,7 +104,7 @@ body {
 
 .notes-text{
 	display: inline-block;
-	width: 40rem;
+	width: 100vw;
 	font-size: var(--font-size);
 	color: white;
 }
@@ -163,9 +164,12 @@ body {
 }
 
   @media (max-width: 768px) {
+	.slides {
+		height: 27rem;
+	}
 	.footer {
 		flex-direction: column;
-		row-gap: 2vh;
+		row-gap: 1rem;
 		align-items: center;
 		justify-content: center;
 	}
@@ -176,33 +180,29 @@ body {
 	.controls {
 		order: 1;
 	}
-	.slides {
-		width: 300px;
-		height: 20rem;
-	}
-
+	
 	.notes{
 		order: 2;
 		width: 100%;
 	}
+}
+
+@media (max-width: 680px) {
+	.slides {
+		height: 23rem;
+	}
 	:root {
-		--font-size: 1.5rem;
+		--font-size: 1rem;
 	}
 }
 
-@media (max-width: 320px) {
+@media (max-width: 500px) {
 	.slides {
-		height: 30vh;
+		height: 17rem;
 	}
-	.radio-element{
-		width: .5rem;
-		height: .5rem;
+}
+@media (max-width: 480px) {
+	.slides {
+		height: 15rem;
 	}
-
-	.radio_label:hover .radio-element {
-		border: 0.02rem;
-	  }
-	  .radio_label:active .radio-element {
-		border: 0.02rem;
-	  }
 }
