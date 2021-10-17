@@ -210,4 +210,7 @@ body {
 	.slides {
 		height: 12rem;
 	}
+	.controls {
+		width: 40%;
+	}
 }
