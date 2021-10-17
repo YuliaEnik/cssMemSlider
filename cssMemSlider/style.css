@@ -2,6 +2,7 @@
 	--font-size: 2rem;
 }
 
+
 * {
 	margin: 0;
 	padding: 0;
@@ -27,7 +28,7 @@ body {
     flex-direction: column;
     margin: 3rem auto;
 	max-width:44rem;
-	row-gap: 1vh;
+	row-gap: 1rem;
     
 }
 
@@ -101,7 +102,8 @@ body {
 }
 
 .notes-text{
-	width: 100%;
+	display: inline-block;
+	width: 40rem;
 	font-size: var(--font-size);
 	color: white;
 }
